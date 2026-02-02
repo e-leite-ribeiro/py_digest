@@ -49,13 +49,12 @@ def main():
         targets=targets
     )
 
-    print (digest)
-    # email_sender.send(
-    #     subject="Currency ratio digest",
-    #     body=digest,
-    #     sender=EMAIL_FROM,
-    #     recipient=EMAIL_TO
-    # )
+    email_sender.send(
+        subject="Currency ratio digest",
+        body=digest,
+        sender=EMAIL_FROM,
+        recipient=EMAIL_TO
+    )
 
 if __name__ == "__main__":
     main()
