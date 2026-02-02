@@ -33,7 +33,7 @@ def main():
     base = args.base_currency.upper()
     targets = [c.strip().upper() for c in args.targets.split(",")]
 
-    exchange_client = ExchangeRateClient(base_url=EXCHANGE_API_URL, api_key=EXCHANGE_API_KEY)
+    exchange_client = ExchangeRateClient(fx_base_url=EXCHANGE_API_URL, fx_api_key=EXCHANGE_API_KEY, btc_base_url=BTC_API_URL)
     digest_service = DigestService(exchange_client)
 
     email_sender = EmailSender(

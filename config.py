@@ -6,6 +6,8 @@ load_dotenv()
 EXCHANGE_API_URL = os.getenv("EXCHANGE_API_URL")
 EXCHANGE_API_KEY = os.getenv("EXCHANGE_API_KEY")
 
+BTC_API_URL = os.getenv("BTC_API_URL")
+
 SMTP_HOST = os.getenv("SMTP_HOST")
 SMTP_PORT = int (os.getenv("SMTP_PORT", 587))
 SMTP_USER = os.getenv("SMTP_USER")

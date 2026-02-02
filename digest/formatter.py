@@ -10,5 +10,10 @@ def format_digest(amount: Decimal, base: str, rates: dict) -> str:
     ]
 
     for currency, value in rates.items():
-        lines.append(f"{value:.2f} {currency}")
+        if (currency == "BTC"):
+            lines.append(f"{value:.8f} {currency}")
+        elif (currency == "XAU"):
+            lines.append(f"{value:.1f} {currency}")
+        else :
+            lines.append(f"{value:.2f} {currency}")
     return "\n".join(lines)
