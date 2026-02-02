@@ -30,6 +30,7 @@ Parameters
 - `<amount>` - should be a decimal in the format xyz.ab
 - `<base_currency_code>` - case insensitive code for a currency (e.g USD, brl, etc..)
 - `<target_currency_code>` - case insensitive codes for currencies separated by commas (e.g RUB,EUR,BRL)
+- conventions: XAU fetch price is calculated as grams_per_dollar
 
 ## Use case
 
