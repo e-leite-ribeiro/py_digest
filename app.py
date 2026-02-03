@@ -25,6 +25,12 @@ def parse_args():
         type=str,
         help="Comma-separated target currencies (e.g. EUR,BRL,RUS)"
     )
+    parser.add_argument(
+        "-r",
+        "--email_recipient",
+        type=str,
+        help="Alternative email recipient, if empty user sends email to himself"
+    )
     return parser.parse_args()
 
 def main():
@@ -32,6 +38,11 @@ def main():
     amount = args.amount
     base = args.base_currency.upper()
     targets = [c.strip().upper() for c in args.targets.split(",")]
+    recipient = (
+        args.email_recipient
+        if args.email_recipient is not None
+        else EMAIL_FROM
+    )
 
     exchange_client = ExchangeRateClient(fx_base_url=EXCHANGE_API_URL, fx_api_key=EXCHANGE_API_KEY, btc_base_url=BTC_API_URL)
     digest_service = DigestService(exchange_client)
@@ -53,7 +64,7 @@ def main():
         subject="Currency ratio digest",
         body=digest,
         sender=EMAIL_FROM,
-        recipient=EMAIL_TO
+        recipient=recipient
     )
 
 if __name__ == "__main__":
